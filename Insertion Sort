@@ -1,0 +1,10 @@
+#include <stdio.h>
+int main(){
+    int counter1, counter2, chk,temp_val,val[100];
+    printf("Total de elementos para organizar:\n");
+    scanf("%d",&chk);
+    printf("Por favor elemeno para organizar:\n");
+    for (counter1 = 0;counter1 <chk; counter1++){
+        scanf("%d",&val[counter1]);
+    }
+}
