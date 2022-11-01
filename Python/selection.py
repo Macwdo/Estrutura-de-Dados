@@ -12,6 +12,7 @@ def sort_selection(array):
         aux_arr = array[i]
         array[i] = next_aux
         array[i+1] = aux_arr
+    print(array)
   return array
 
 def sort_livro(data):
@@ -23,4 +24,19 @@ def sort_livro(data):
                 minIndex = compIndex
             if minIndex != scanIndex:
                 data[scanIndex],data[minIndex] = data[minIndex],data[scanIndex]
-                print(data)
+            print(data)
+
+data = [1,321,421,412,41,41,5,1,25,4,23,6,32,46,246,23,6,23,6,23,6,12,7,43,2,74,43,27]
+
+def sortList(array):
+    length = len(array)
+    for item in range(length):
+        minimum = item
+        for i in range(item + 1, length):
+            if array[i] < array[minimum]:
+                minimum = i
+
+        (array[item], array[minimum]) = (array[minimum], array[item])
+        print(array)
+
+sortList(data)
