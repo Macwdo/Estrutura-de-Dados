@@ -15,7 +15,7 @@ struct no *getNovoNo(int val){
     novoNo->esquerda = NULL;
     novoNo->direita = NULL;
     return novoNo;
-}
+};
 
 struct no *inserir(struct no *raiz, int val){
     /* 
@@ -34,4 +34,36 @@ struct no *inserir(struct no *raiz, int val){
     se dado val for menor que raiz->chave,
     devemos encontrar o lugar correto na subárvore direita e inserir o novo nó
     */
+    else if (raiz->chave > val)
+        raiz->esquerda = inserir(raiz->esquerda, val);
+    /*
+    Ele vai lidar com dois  casos
+    (Evite os nós duplicados na árvore)
+    1.Se raiz->chave == val ele retornará imediatamente o endereço do nó raiz
+    2.Após a inserção, ele retornará o endereço da raiz original inalterado 
+    */
+    return raiz;
+};
+
+void ordena(struct no *raiz){
+    if (raiz==NULL)
+        return;
+    ordena(raiz->esquerda);
+    printf("%d ",raiz->chave);
+    ordena(raiz->direita);
+};
+
+int main(){
+    struct no *raiz = NULL;
+    raiz = inserir(raiz,10);
+    raiz = inserir(raiz,5);
+    raiz = inserir(raiz,15);
+    raiz = inserir(raiz,46);
+    raiz = inserir(raiz,15);
+
+    raiz = inserir(raiz,5);
+    ordena(raiz);
+    return 0;
+
 }
+
