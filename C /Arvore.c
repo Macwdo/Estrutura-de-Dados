@@ -8,7 +8,7 @@
 struct Node{
     int chave;
     struct Node *esquerda, *direita;
-}
+};
 
 
 /* Função auxiliar que aloca um novo nó com o dado
@@ -18,10 +18,10 @@ struct Node *novoNo(char k){
     node->chave = k;
     node->direita = node->esquerda= NULL;
     return node;
-}
+};
 /* Esta função testa se a árvore binária é uma árvore binária completo.*/
 
-bool arvoreCheia(stuct Node* root){
+bool arvoreCheia(struct Node* root){
     // Se a arvore estiver vazia
     if (root == NULL)
     return true;
@@ -36,8 +36,21 @@ bool arvoreCheia(stuct Node* root){
     
     // Nos chegamos quando nenhuma das condições funcionam
     return false;
+};
+
+int main(){
+    struct Node* root = NULL;
+    root = novoNo(10);
+    root->esquerda = novoNo(20);
+    root->direita = novoNo(30);
     
-}
+    root->esquerda->direita = novoNo(40);
+    root->esquerda->esquerda = novoNo(50);
+    root->direita->esquerda = novoNo(60);
+    root->direita->direita = novoNo(70);
+
+};
+
 
 
 
