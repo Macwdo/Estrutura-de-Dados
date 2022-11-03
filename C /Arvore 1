@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct no{
+    int chave;
+    struct no *esquerda;
+    struct no *direita;
+};
+
+struct no *getNovoNo(int val){
+    struct no *novoNo = malloc(sizeof(struct no));
+    novoNo->chave = val;
+    novoNo->esquerda = NULL;
+    novoNo->direita = NULL;
+    return novoNo;
+}
