@@ -38,20 +38,6 @@ bool arvoreCheia(struct Node* root){
     return false;
 };
 
-int main(){
-    struct Node* root = NULL;
-    root = novoNo(10);
-    root->esquerda = novoNo(20);
-    root->direita = novoNo(30);
-    
-    root->esquerda->direita = novoNo(40);
-    root->esquerda->esquerda = novoNo(50);
-    root->direita->esquerda = novoNo(60);
-    root->direita->direita = novoNo(70);
-
-};
-
-
 // Contagem do numero de nós
 int contaNumeroNos(struct Node *root){
     if(root==NULL)
@@ -68,7 +54,7 @@ bool verificaCompleto(struct Node *root, int index, int numeroNos){
     return(verificaCompleto(root->esquerda,2*index+1,numeroNos) && verificaCompleto(root->direita,2 * index+2,numeroNos));
 };
 
-int main1(){
+int main(){
     struct Node *root = NULL;
     root = novoNo(1);
     root->esquerda = novoNo(2);
