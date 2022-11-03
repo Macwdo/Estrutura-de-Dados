@@ -53,6 +53,27 @@ void ordena(struct no *raiz){
     ordena(raiz->direita);
 };
 
+// Mesmo código anterior, continuando após inserir.
+int getdireitaMin(struct no *raiz){
+    struct no *temp = raiz;
+    // min valor deve estar presente no nó mais á esquerda.
+    while (temp->esquerda != NULL){
+        temp = temp->esquerda;
+    }
+    return temp->chave;
+}
+
+struct no *removeno(struct no *raiz, int val){
+    /*
+    Se o nó se tornar NULL, ele retornará NULL
+    Duas maneiras possíveis que podem desencadear este caso
+    1. Se enviarmos a árvore vazia. ou seja, raiz == NULL
+    2. Se o nó fornecido não estiver presente na árvore.
+    */
+    if (raiz == NULL)
+        return NULL;
+}
+
 int main(){
     struct no *raiz = NULL;
     raiz = inserir(raiz,10);
