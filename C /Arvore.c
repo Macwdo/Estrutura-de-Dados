@@ -52,5 +52,46 @@ int main(){
 };
 
 
+// Contagem do numero de nós
+int contaNumeroNos(struct Node *root){
+    if(root==NULL)
+        return(0);
+    return (1+ contaNumeroNos(root->esquerda)+contaNumeroNos(root->direita));
+};
+
+//Verifique se a árvore é uma árvore binária completa
+bool verificaCompleto(struct Node *root, int index, int numeroNos){
+    if(root == NULL)return true;
+    
+    if(index>= numeroNos)return false;
+    
+    return(verificaCompleto(root->esquerda,2*index+1,numeroNos) && verificaCompleto(root->direita,2 * index+2,numeroNos));
+};
+
+int main1(){
+    struct Node *root = NULL;
+    root = novoNo(1);
+    root->esquerda = novoNo(2);
+    root->direita = novoNo(3);
+    root->esquerda->esquerda = novoNo(4);
+    root->direita->direita = novoNo(5);
+    root->direita->esquerda = novoNo(6);
+    
+    int node_count = contaNumeroNos(root);
+    int index = 0;
+    
+    if (verificaCompleto(root, index, node_count)){
+        printf("A arvore binaria eh uma arvore binaria completa\n");}
+    else{
+        printf("A arvore binaria não eh uma aravore binaria completa\n");}
+    
+};
+
+
+
+
+
+
+
 
 
